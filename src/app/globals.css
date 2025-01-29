@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #111;
+  --foreground: #fff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+@layer components {
+  .card-light-purple-gradient {
+    @apply rounded-3xl p-[25px] sm:p-[40px] lg:p-[50px] bg-light-purple-gradient;
+  }
+  .card-soft-purple-gradient {
+    @apply rounded-3xl p-[25px] sm:p-[40px] lg:p-[50px] bg-soft-purple-gradient relative;
+    backdrop-filter: blur(6px);
+
+    &::after {
+      @apply border-soft-purple-after rounded-3xl;
+    }
+  }
+  .card-soft-purple-gradient-item {
+    @apply rounded-3xl p-[20px] sm:p-[30px] bg-soft-purple-gradient relative;
+    backdrop-filter: blur(6px);
+
+    &::after {
+      @apply border-soft-light-after rounded-3xl;
+    }
+  }
+
+  .card-misty-purple-gradient {
+    @apply rounded-3xl p-[30px];
+    background: linear-gradient(
+      180deg,
+      rgba(34, 26, 124, 0.5) 0%,
+      rgba(17, 9, 44, 0.5) 100%
+    );
+    border: 1px solid #fff;
+    box-shadow:
+      0 0 32px 2.4px #5152da80 inset,
+      0 0 32px 2.4px #5152da80;
+  }
+}
+
+/* Slick Slider */
+@keyframes width-expand {
+  0% {
+    width: 6px;
+  }
+  100% {
+    width: 14px;
+  }
+}
+.slick-initialized .slick-slider .slick-track,
+.slick-slider .slick-list {
+  @apply transform-none;
+}
+
+.slick-initialized .slick-list {
+  @apply overflow-hidden mb-5;
+}
+
+.slick-initialized.slick-slider .slick-track {
+  @apply flex gap-4 items-stretch;
+}
+
+.slick-initialized .slick-slide > div {
+  @apply h-full;
+}
+
+.slick-dots {
+  @apply mx-auto text-center;
+}
+
+.slick-dots li {
+  font-size: 0;
+  line-height: 0;
+  @apply inline-block w-[6px] h-[6px] m-[3px] rounded-full bg-red-400;
+  transition: width 0.3s ease;
+}
+.slick-dots li.slick-active {
+  @apply w-[14px];
+  animation: width-expand 0.3s ease forwards;
+}
