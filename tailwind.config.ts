@@ -77,6 +77,7 @@ export default {
         },
         purple: {
           300: "#D9ADED",
+          900: "#331441",
         },
       },
     },

@@ -37,7 +37,7 @@ body {
   }
 
   .card-misty-purple-gradient {
-    @apply rounded-3xl p-[30px];
+    @apply rounded-3xl py-[30px] px-[10px];
     background: linear-gradient(
       180deg,
       rgba(34, 26, 124, 0.5) 0%,
@@ -47,6 +47,30 @@ body {
     box-shadow:
       0 0 32px 2.4px #5152da80 inset,
       0 0 32px 2.4px #5152da80;
+  }
+  /* Button */
+  .btn-yellow-gradient {
+    background: radial-gradient(
+        92.05% 200% at 94.89% -132.81%,
+        #ff7a00 67.59%,
+        rgba(255, 199, 0, 0.38) 100%
+      ),
+      radial-gradient(
+        71.74% 117.31% at 32.95% 0%,
+        rgba(255, 137, 137, 0.92) 21.25%,
+        rgba(255, 169, 106, 0.57) 88.62%
+      ),
+      radial-gradient(
+        39.2% 181% at 5.68% 100%,
+        rgba(246, 251, 34, 0.51) 0%,
+        rgba(255, 158, 69, 0) 100%
+      ),
+      radial-gradient(
+        31.25% 236.33% at 96.59% 31.25%,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      linear-gradient(0deg, #fff500, #fff500);
   }
 }
 
