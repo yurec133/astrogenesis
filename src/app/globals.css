@@ -16,28 +16,34 @@ body {
 }
 
 @layer components {
-  .card-light-purple-gradient {
-    @apply rounded-3xl p-[25px] sm:p-[40px] lg:p-[50px] bg-light-purple-gradient;
+  .bg-card-light-purple-gradient {
+    @apply bg-light-purple-gradient;
   }
-  .card-soft-purple-gradient {
-    @apply rounded-3xl p-[25px] sm:p-[40px] lg:p-[50px] bg-soft-purple-gradient relative;
+  .bg-card-soft-purple-gradient {
+    @apply bg-soft-purple-gradient rounded-3xl relative;
     backdrop-filter: blur(6px);
 
     &::after {
       @apply border-soft-purple-after rounded-3xl;
     }
   }
-  .card-soft-purple-gradient-item {
-    @apply rounded-3xl p-[20px] sm:p-[30px] bg-soft-purple-gradient relative;
+  .bg-card-soft-purple-gradient-item {
+    @apply rounded-2xl p-[20px] sm:p-[30px] bg-soft-purple-gradient relative;
     backdrop-filter: blur(6px);
 
     &::after {
-      @apply border-soft-light-after rounded-3xl;
+      @apply border-soft-light-after rounded-2xl;
     }
   }
+  .bg-dark-purple-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(96, 49, 139, 0.4) 0%,
+      rgba(70, 57, 122, 0.4) 37.85%
+    );
+  }
 
-  .card-misty-purple-gradient {
-    @apply rounded-3xl py-[30px] px-[10px];
+  .bg-misty-purple-gradient {
     background: linear-gradient(
       180deg,
       rgba(34, 26, 124, 0.5) 0%,
@@ -47,6 +53,14 @@ body {
     box-shadow:
       0 0 32px 2.4px #5152da80 inset,
       0 0 32px 2.4px #5152da80;
+  }
+  .bg-misty-purple-gradient-input {
+    background: linear-gradient(
+      180deg,
+      rgba(34, 26, 124, 0.5) 0%,
+      rgba(17, 9, 44, 0.5) 100%
+    );
+    border: 1px solid #51487b;
   }
   /* Button */
   .btn-yellow-gradient {
@@ -113,4 +127,22 @@ body {
 .slick-dots li.slick-active {
   @apply w-[14px];
   animation: width-expand 0.3s ease forwards;
+}
+/* Slick Slider End */
+
+
+.bg-gradient-submit-btn {
+  background:
+    radial-gradient(68.78% 100% at 43.75% 114.06%, #ad12f5 0%, #fdac62 80.98%),
+    radial-gradient(
+      59.09% 164.65% at -3.98% 12.5%,
+      #ff33ba 19.65%,
+      rgba(237, 66, 179, 0) 100%
+    ),
+    radial-gradient(
+      57.81% 391.02% at 25.57% 34.38%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(0deg, #55128a, #55128a);
 }

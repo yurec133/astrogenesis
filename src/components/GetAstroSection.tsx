@@ -1,10 +1,14 @@
 import React from "react";
 import BuyCard from "@/components/BuyCard";
 
-const GetAstro = () => {
+const GetAstroSection = () => {
   return (
-    <div className={"card-light-purple-gradient"}>
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-10 lg:gap-20">
+    <section
+      className={
+        "bg-card-light-purple-gradient mb-16 rounded-2xl p-[20px] lg:p-[45px] xl:p-[60px]"
+      }
+    >
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_0.9fr] gap-10 xl:gap-20">
         <div>
           <h3
             className={
@@ -39,7 +43,7 @@ const GetAstro = () => {
           </p>
         </div>
         <div>
-          <div className="items-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-rows-2 lg:grid-cols-1 gap-6">
+          <div className="items-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-1 gap-6">
             <div>
               <BuyCard
                 title={"Where to Buy"}
@@ -59,8 +63,8 @@ const GetAstro = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default GetAstro;
+export default GetAstroSection;

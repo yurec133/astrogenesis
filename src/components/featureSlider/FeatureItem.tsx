@@ -9,7 +9,7 @@ interface FeatureItemProps {
 
 const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, title, desc }) => {
   return (
-    <div className="card-soft-purple-gradient-item text-center h-full">
+    <div className="bg-card-soft-purple-gradient-item text-center h-full rounded-2xl">
       <Image
         className="m-auto mb-5"
         src={imgSrc}

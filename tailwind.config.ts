@@ -10,17 +10,49 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        "max-2xl": { max: "1536px" },
+        "max-lg": { max: "1023px" },
+      },
       fontSize: {
         "7xl": "5rem", //80px
+        "custom-6xl": [
+          "4.125rem",
+          {
+            lineHeight: "1",
+          },
+        ], //66px
         "6xl": [
           "3.5rem",
           {
             lineHeight: "1.2",
           },
         ], //56px
-        "5xl": "2.875rem", //46px
+        "5xl": [
+          "2.875rem",
+          {
+            lineHeight: "1.2",
+          },
+        ], //46px
         "4xl": "2.625rem", //42px
-        "3xl": "2rem", //32px
+        "custom-3xl": [
+          "2.5rem",
+          {
+            lineHeight: "1.2",
+          },
+        ], //40px
+        "custom-3x": [
+          "2.375rem",
+          {
+            lineHeight: "1.2",
+          },
+        ], //38px
+        "3xl": [
+          "2rem",
+          {
+            lineHeight: "1.2",
+          },
+        ], //32px
         "2xl": [
           "1.75rem",
           {
@@ -54,8 +86,8 @@ export default {
         exo2: ["var(--font-exo2)", "sans-serif"],
       },
       borderRadius: {
-        "2xl": "1.75rem",
-        "3xl": "2.375rem",
+        "2xl": "1.75rem", //28px
+        "3xl": "2.375rem", //38px
       },
       backgroundImage: {
         "light-purple-gradient":
@@ -79,6 +111,12 @@ export default {
           300: "#D9ADED",
           900: "#331441",
         },
+        indigo: {
+          900: "#1A1145",
+        },
+        gray: {
+          200: "#ddd",
+        },
       },
     },
   },
@@ -86,7 +124,7 @@ export default {
     function ({ addComponents }: PluginAPI) {
       addComponents({
         ".container": {
-          maxWidth: "1408px",
+          maxWidth: "1464px",
         },
       });
     },

@@ -10,7 +10,7 @@ interface BuyCardProps {
 
 const BuyCard: FC<BuyCardProps> = ({ title, desc, btnName, href }) => {
   return (
-    <div className="text-center card-misty-purple-gradient h-full flex flex-col">
+    <div className="text-center bg-misty-purple-gradient py-[30px] px-[10px] h-full flex flex-col rounded-[1.875rem]">
       <div className={"flex-1 flex flex-col"}>
         <h3 className="text-blue-400 uppercase font-extrabold text-2xl mb-5">
           {title}
