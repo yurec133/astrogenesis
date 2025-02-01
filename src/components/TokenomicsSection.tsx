@@ -7,6 +7,7 @@ import StatusList from "@/components/StatusList";
 const TokenomicsSection = () => {
   return (
     <section
+      id={"tokenomics"}
       className={
         "bg-card-soft-purple-gradient after:rounded-2xl mb-10 lg:mb-24 xl:mb-32 p-[15px] md:p-[27px] xl:p-[40px] rounded-2xl"
       }

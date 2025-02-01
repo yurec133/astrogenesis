@@ -6,7 +6,9 @@
   --background: #111;
   --foreground: #fff;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   color: var(--foreground);
   background: var(--background);
@@ -130,17 +132,11 @@ body {
 }
 /* Slick Slider End */
 
-
 .bg-gradient-submit-btn {
-  background:
-    radial-gradient(68.78% 100% at 43.75% 114.06%, #ad12f5 0%, #fdac62 80.98%),
+  background: radial-gradient(100% 80% at 50% 100%, #ad12f5 0%, #fdac62 80%),
+    radial-gradient(80% 140% at 0% 10%, #ff33ba 20%, rgba(237, 66, 179, 0) 100%),
     radial-gradient(
-      59.09% 164.65% at -3.98% 12.5%,
-      #ff33ba 19.65%,
-      rgba(237, 66, 179, 0) 100%
-    ),
-    radial-gradient(
-      57.81% 391.02% at 25.57% 34.38%,
+      80% 200% at 25% 35%,
       rgba(255, 255, 255, 0.3) 0%,
       rgba(255, 255, 255, 0) 100%
     ),

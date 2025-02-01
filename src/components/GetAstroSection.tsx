@@ -4,6 +4,7 @@ import BuyCard from "@/components/BuyCard";
 const GetAstroSection = () => {
   return (
     <section
+      id={"astro"}
       className={
         "bg-card-light-purple-gradient mb-16 rounded-2xl p-[20px] lg:p-[45px] xl:p-[60px]"
       }

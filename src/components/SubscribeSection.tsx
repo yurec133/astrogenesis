@@ -4,7 +4,7 @@ import SubscribeForm from "@/components/SubscribeForm";
 
 const SubscribeSection = () => {
   return (
-    <div className={"mb-16 lg:mb-36 text-center"}>
+    <section id={'airdrop'} className={"mb-16 lg:mb-36 xl:mx-[40px] text-center"}>
       <Image
         className={"inline-block mb-4 lg:mb-7"}
         src="/images/img-astr-on-ship.svg"
@@ -20,7 +20,7 @@ const SubscribeSection = () => {
         Join the Community
       </h2>
       <SubscribeForm />
-    </div>
+    </section>
   );
 };
 
