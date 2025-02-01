@@ -11,7 +11,7 @@ const menuItems: { name: string; href: string }[] = [
   { name: "AIRDROP (soon)", href: "#airdrop" },
 ];
 
-const Header = () => {
+const DesktopNav = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
 
@@ -22,13 +22,18 @@ const Header = () => {
     }
 
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 100);
+      if (window.scrollY === 0) {
+        setActiveLink(null);
+      } else {
+        setIsSticky(window.scrollY > 100);
+      }
     };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log(entry.target.id);
             setActiveLink(`#${entry.target.id}`);
           }
         });
@@ -68,7 +73,7 @@ const Header = () => {
   return (
     <header
       className={clsx(
-        "mt-[40px] relative z-50 m-auto mb-[300px] min-h-[80px] w-[1468px] rounded-full flex items-center justify-center transition-all duration-300",
+        "hidden lg:flex mt-[40px] relative max-w-full z-50 mx-[40px] 2xl:m-auto min-h-[80px] 2xl:w-[1468px] rounded-full items-center justify-center transition-all duration-300",
         {
           "bg-card-light-purple-gradient sticky top-[20px]": isSticky,
         },
@@ -85,7 +90,6 @@ const Header = () => {
           />
         </Link>
       </div>
-
       <nav>
         <ul className="flex justify-center gap-11 font-bold uppercase tracking-tighter">
           {menuItems.map((item, index) => (
@@ -94,7 +98,7 @@ const Header = () => {
                 href={item.href}
                 className={clsx("transition", {
                   "text-yellow-300": activeLink === item.href,
-                  "hover:text-yellow-300": activeLink !== item.href,
+                  "xl:hover:text-yellow-300": activeLink !== item.href,
                 })}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
               >
@@ -114,4 +118,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopNav;

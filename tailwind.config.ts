@@ -124,7 +124,7 @@ export default {
     function ({ addComponents }: PluginAPI) {
       addComponents({
         ".container": {
-          maxWidth: "1464px",
+          maxWidth: "1468px",
         },
       });
     },
