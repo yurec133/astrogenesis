@@ -106,6 +106,10 @@ body {
     width: 14px;
   }
 }
+.slick-initialized .slick-slider{
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
 .slick-initialized .slick-slider .slick-track,
 .slick-slider .slick-list {
   @apply transform-none;
@@ -121,6 +125,10 @@ body {
 
 .slick-initialized .slick-slide > div {
   @apply h-full;
+}
+.slick-initialized .slick-slide img{
+  pointer-events: none;
+  user-select: none;
 }
 
 .slick-dots {

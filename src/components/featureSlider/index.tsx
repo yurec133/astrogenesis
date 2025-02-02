@@ -16,7 +16,9 @@ const FeatureSlider = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
-    swipeToSlide: true,
+    swipeToSlide: false,
+    touchMove: true,
+    swipe: true,
   };
 
   return (

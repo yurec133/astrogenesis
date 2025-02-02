@@ -55,7 +55,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
         />
       </div>
       <div
-        className={`fixed w-full h-full inset-0 z-40 pt-[70px] pb-[10px] transition-all duration-300 bg-[url('/images/bg-menu.jpg')] bg-cover bg-no-repeat ${
+        className={`fixed w-full h-full inset-0 z-40 pt-[75px] pb-[10px] transition-all duration-300 bg-[url('/images/bg-menu.jpg')] bg-cover bg-no-repeat ${
           isOpen
             ? "opacity-100 translate-x-0 z-[100]"
             : "opacity-0 translate-x-full"
@@ -72,7 +72,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           height={38}
         />
         <div className="flex flex-col justify-between h-full gap-5">
-          <nav>
+          <nav className={'flex flex-col h-full justify-center'}>
             <ul className="space-y-2 tracking-wide text-center font-bold uppercase text-lg">
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">

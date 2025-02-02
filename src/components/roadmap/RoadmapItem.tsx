@@ -17,8 +17,8 @@ const RoadmapItem: React.FC<RoadmapItemProps> = ({
   index,
 }) => {
   return (
-    <div className="bg-card-light-purple-gradient lg:text-center pl-8 pt-6 pb-6 pr-3 lg:px-4 lg:pt-8 lg:pb-6 rounded-[24px] xl:rounded-xl relative">
-      <div className="grid grid-cols-2 gap-4 lg:gap-0 lg:grid-cols-1 items-center">
+    <div className="bg-card-light-purple-gradient lg:text-center pl-[30px] pt-6 pb-6 pr-3 lg:px-4 lg:pt-8 lg:pb-6 rounded-[24px] xl:rounded-xl relative">
+      <div className="grid grid-cols-[1.3fr_0.7fr] gap-2 lg:gap-0 lg:grid-cols-1 items-center">
         <div>
           <h3
             style={{ marginBottom: `${roadmapMarginsBottom[index]}%` }}
@@ -29,7 +29,7 @@ const RoadmapItem: React.FC<RoadmapItemProps> = ({
           <div className="hidden lg:block relative z-10 leading-[59px] w-[59px] h-[59px] rounded-full bg-red-400 font-bold m-auto mb-4 uppercase text-indigo-900 text-center">
             {label}
           </div>
-          <div className="text-sm xl:text-tiny text-gray-200 font-medium xl:font-semibold">
+          <div className="text-sm xl:text-tiny leading-[1.2] text-gray-200 font-medium xl:font-semibold">
             {desc}
           </div>
         </div>
