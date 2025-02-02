@@ -185,5 +185,5 @@ body {
 /* Button End*/
 
 .bg-nav-gradient {
-  background: linear-gradient(180deg, #2a1b72 0%, #512781 37.85%);
+  background: linear-gradient(180deg, rgba(42, 27, 114, 0.95) 0%, rgba(81, 39, 129, 0.95) 37.85%);
 }
