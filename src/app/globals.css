@@ -62,31 +62,38 @@ body {
       rgba(34, 26, 124, 0.5) 0%,
       rgba(17, 9, 44, 0.5) 100%
     );
-    border: 1px solid #51487b;
   }
-  /* Button */
-  .btn-yellow-gradient {
+
+  .bg-blue-gradient-hover {
+    color: #fff;
+    @apply transition-all duration-200;
+    box-shadow:
+      0 10px 60px #298eaecc,
+      -20px -20px 50px #b675de66,
+      0 20px 60px #6276e033,
+      0 0 10px #ffffff80 inset;
+
     background: radial-gradient(
-        92.05% 200% at 94.89% -132.81%,
-        #ff7a00 67.59%,
-        rgba(255, 199, 0, 0.38) 100%
+        58.24% 134.23% at 33.81% 109.38%,
+        rgba(102, 129, 226, 0.81) 0%,
+        rgba(102, 129, 226, 0) 95.37%
       ),
       radial-gradient(
-        71.74% 117.31% at 32.95% 0%,
-        rgba(255, 137, 137, 0.92) 21.25%,
-        rgba(255, 169, 106, 0.57) 88.62%
+        82.79% 104.69% at 20.17% -22.66%,
+        #1d52a0 0%,
+        rgba(29, 82, 160, 0.18) 100%
       ),
       radial-gradient(
-        39.2% 181% at 5.68% 100%,
-        rgba(246, 251, 34, 0.51) 0%,
-        rgba(255, 158, 69, 0) 100%
+        105.11% 170.6% at 105.11% -15.62%,
+        rgba(19, 229, 213, 0.5) 19.66%,
+        rgba(19, 229, 213, 0.06) 71.06%
       ),
       radial-gradient(
-        31.25% 236.33% at 96.59% 31.25%,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0) 100%
+        110.23% 82.81% at 50% 17.19%,
+        rgba(255, 255, 255, 0.098) 0%,
+        rgba(255, 255, 255, 0.038) 100%
       ),
-      linear-gradient(0deg, #fff500, #fff500);
+      linear-gradient(0deg, #eef9ff, #eef9ff);
   }
 }
 
@@ -132,7 +139,32 @@ body {
 }
 /* Slick Slider End */
 
-.bg-gradient-submit-btn {
+/* Button */
+.btn-yellow-gradient {
+  background: radial-gradient(
+      92.05% 200% at 94.89% -132.81%,
+      #ff7a00 67.59%,
+      rgba(255, 199, 0, 0.38) 100%
+    ),
+    radial-gradient(
+      71.74% 117.31% at 32.95% 0%,
+      rgba(255, 137, 137, 0.92) 21.25%,
+      rgba(255, 169, 106, 0.57) 88.62%
+    ),
+    radial-gradient(
+      39.2% 181% at 5.68% 100%,
+      rgba(246, 251, 34, 0.51) 0%,
+      rgba(255, 158, 69, 0) 100%
+    ),
+    radial-gradient(
+      31.25% 236.33% at 96.59% 31.25%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(0deg, #fff500, #fff500);
+}
+
+.btn-submit-gradient {
   background: radial-gradient(100% 80% at 50% 100%, #ad12f5 0%, #fdac62 80%),
     radial-gradient(80% 140% at 0% 10%, #ff33ba 20%, rgba(237, 66, 179, 0) 100%),
     radial-gradient(
@@ -141,4 +173,9 @@ body {
       rgba(255, 255, 255, 0) 100%
     ),
     linear-gradient(0deg, #55128a, #55128a);
+}
+/* Button End*/
+
+.bg-nav-gradient {
+  background: linear-gradient(180deg, #2a1b72 0%, #512781 37.85%);
 }

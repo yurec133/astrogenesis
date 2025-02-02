@@ -6,12 +6,12 @@ import RoadmapSection from "@/components/roadmap";
 import SubscribeSection from "@/components/SubscribeSection";
 import Footer from "@/components/Footer";
 import AboutSection from "@/components/AboutSection";
-import DesktopNav from "@/components/DesktopNav";
+import Menu from "@/components/Menu";
 
 export default function Home() {
   return (
     <>
-      <DesktopNav />
+      <Menu />
       <div className="container mx-auto px-5 lg:px-[50px] pt-[800px]">
         <AboutSection />
         <FeatureSlider />

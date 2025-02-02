@@ -16,7 +16,7 @@ const ButtonYellow: FC<ButtonProps> = ({
     <Link
       href={href}
       className={clsx(
-        "inline-block text-purple-900 px-[30px] btn-yellow-gradient leading-[66px] h-[66px] text-custom-xl font-extrabold rounded-full min-w-[284px]",
+        "hover:bg-blue-gradient-hover inline-block text-purple-900 px-[30px] btn-yellow-gradient leading-[66px] h-[66px] text-custom-xl font-extrabold rounded-full min-w-[284px]",
         className,
       )}
       {...props}
