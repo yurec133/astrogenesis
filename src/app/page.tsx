@@ -8,10 +8,12 @@ import AboutSection from "@/components/AboutSection";
 import Menu from "@/components/Menu";
 import Hero from "@/components/Hero";
 import SolarSystemSection from "@/components/SolarSystemSection";
+import Stars from "@/components/Stars";
 
 export default function Home() {
   return (
     <>
+      <Stars />
       <Menu />
       <Hero />
       <SolarSystemSection />
