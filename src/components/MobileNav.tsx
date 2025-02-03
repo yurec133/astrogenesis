@@ -32,7 +32,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
     <>
       <div
         className={
-          "flex lg:hidden justify-between align-items-center gap-4 px-[30px] sticky top-[20px] z-50"
+          "flex lg:hidden justify-between align-items-center gap-4 px-[18px] sticky top-[20px] z-50"
         }
       >
         <Link href="/" aria-label="Go to homepage" onClick={handleScrollToTop}>
@@ -55,9 +55,9 @@ const MobileNav: React.FC<MobileNavProps> = ({
         />
       </div>
       <div
-        className={`fixed w-full h-full inset-0 z-40 pt-[75px] pb-[10px] transition-all duration-300 bg-[url('/images/bg-menu.jpg')] bg-cover bg-no-repeat ${
+        className={`fixed w-full h-full inset-0 z-40 pt-[75px] pb-[10px] transition-all duration-300 bg-cover bg-no-repeat ${
           isOpen
-            ? "opacity-100 translate-x-0 z-[100]"
+            ? "opacity-100 translate-x-0 z-[100] bg-[url('/images/bg-menu.jpg')]"
             : "opacity-0 translate-x-full"
         }`}
       >

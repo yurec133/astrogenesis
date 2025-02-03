@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #111;
+  --background: #000;
   --foreground: #fff;
 }
 html {
@@ -11,7 +11,29 @@ html {
 }
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
+  background-image: url("/images/bg-planet-purple.webp"),
+    url("/images/bg-space-ship.png"), url("/images/bg-moon.png"),
+    url("/images/bg-planet-astro.webp"), url("/images/bg-planet-about.webp"),
+    url("/images/bg-spacehip-about-small.png"),
+    url("/images/bg-spacehip-about-medium.png");
+  background-position:
+    0 97%,
+    78% 87%,
+    88% 86%,
+    100% 50%,
+    0 31%,
+    19% 31%,
+    100% 24%;
+  background-size:
+          35% auto, /* bg-planet-purple.png */
+          auto, /* bg-space-ship.png */
+          auto, /* bg-moon.png */
+          50% auto, /* bg-planet-astro.png */
+          auto, /* bg-planet-about.png */
+          auto, /* bg-spacehip-about-small.png */
+          auto; /* bg-spacehip-about-medium.png */
+  background-repeat: no-repeat;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.45;
@@ -106,7 +128,7 @@ body {
     width: 14px;
   }
 }
-.slick-initialized .slick-slider{
+.slick-initialized .slick-slider {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
@@ -126,7 +148,7 @@ body {
 .slick-initialized .slick-slide > div {
   @apply h-full;
 }
-.slick-initialized .slick-slide img{
+.slick-initialized .slick-slide img {
   pointer-events: none;
   user-select: none;
 }
@@ -185,5 +207,9 @@ body {
 /* Button End*/
 
 .bg-nav-gradient {
-  background: linear-gradient(180deg, rgba(42, 27, 114, 0.95) 0%, rgba(81, 39, 129, 0.95) 37.85%);
+  background: linear-gradient(
+    180deg,
+    rgba(42, 27, 114, 0.95) 0%,
+    rgba(81, 39, 129, 0.95) 37.85%
+  );
 }
