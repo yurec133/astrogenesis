@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useCallback, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -17,26 +17,28 @@ interface StarConfig {
 const Stars: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Memoize random function to prevent recreation on each render
-  const random = useCallback((min: number, max: number) => {
-    return min + Math.random() * (max - min);
+  const initialStarCount = useMemo(() => {
+    if (typeof window !== "undefined") {
+      const canvasSize = window.innerWidth * window.innerHeight;
+      return Math.round(canvasSize / 1000);
+    }
+    return 100;
   }, []);
 
-  // Adjusted star creation configuration to increase density of small stars
-  const createStarConfig = useCallback(
-      (): StarConfig => ({
-        depth: random(0.5, 2),
-        xPos: random(0, 100),
-        yPos: random(0, 100),
-        alpha: random(0.2, 0.7), // Lowered opacity for more subtle small stars
-        size: random(0.5, 2), // Reduced size range for more tiny stars
-        blur: 0,
-        lifetime: random(6, 15) * 1000, // Slightly shorter lifetime
-      }),
-      [random],
-  );
+  const random = (min: number, max: number) =>
+    min + Math.random() * (max - min);
 
-  const createStar = useCallback(() => {
+  const createStarConfig = (): StarConfig => ({
+    depth: random(0.5, 2),
+    xPos: random(0, 100),
+    yPos: random(0, 100),
+    alpha: random(0.2, 0.7),
+    size: random(0.5, 2),
+    blur: 0,
+    lifetime: random(6, 15) * 1000,
+  });
+
+  const createStar = () => {
     if (!containerRef.current) return;
 
     const { depth, xPos, yPos, alpha, size, lifetime } = createStarConfig();
@@ -44,7 +46,6 @@ const Stars: React.FC = () => {
     const star = document.createElement("div");
     star.classList.add("star");
 
-    // Use Object.assign for more performant style setting
     Object.assign(star.style, {
       position: "fixed",
       left: `${xPos}%`,
@@ -54,15 +55,13 @@ const Stars: React.FC = () => {
       height: `${size}px`,
       backgroundColor: "#ffffff",
       borderRadius: "50%",
-      filter: `blur(${(2 - depth) * 1.5}px)`, // Slightly less blur
+      filter: `blur(${(2 - depth) * 1.5}px)`,
     });
 
     containerRef.current.appendChild(star);
 
-    // Use GSAP timeline for more efficient animations
     const tl = gsap.timeline();
 
-    // Entrance animation with more subtle movement
     tl.from(star, {
       duration: 1.5 * depth,
       opacity: 0,
@@ -71,34 +70,27 @@ const Stars: React.FC = () => {
       rotate: 180,
     });
 
-    // Exit animation
     tl.to(star, {
       duration: 1.5,
       opacity: 0,
       delay: lifetime / 1000,
       onComplete: () => {
         star.remove();
-        setTimeout(createStar, random(1000, 3000)); // More frequent star creation
+        setTimeout(createStar, random(1000, 3000));
       },
     });
-  }, [createStarConfig, random]);
-
-  // Calculate initial number of stars - significantly increased
-  const initialStarCount = useMemo(() => {
-    const canvasSize = window.innerWidth * window.innerHeight;
-    return Math.round(canvasSize / 1000); // More stars per unit area
-  }, []);
+  };
 
   useGSAP(() => {
-    // Initial star creation with more staggered and frequent timing
+    if (typeof window === "undefined") return;
+
     for (let i = 0; i < initialStarCount; i++) {
       setTimeout(createStar, random(0, 4000));
     }
 
-    // Optional: Handle window resize to adjust stars
     const handleResize = () => {
       if (containerRef.current) {
-        containerRef.current.innerHTML = ""; // Clear existing stars
+        containerRef.current.innerHTML = "";
         for (let i = 0; i < initialStarCount; i++) {
           setTimeout(createStar, random(0, 4000));
         }
@@ -107,18 +99,17 @@ const Stars: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup listener
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [createStar, initialStarCount, random]);
+  }, [initialStarCount]);
 
   return (
-      <div
-          ref={containerRef}
-          className="fixed inset-0 pointer-events-none z-[-1]"
-      ></div>
+    <div
+      ref={containerRef}
+      className="fixed inset-0 pointer-events-none z-[-1]"
+    ></div>
   );
 };
 
-export default React.memo(Stars);
+export default Stars;
