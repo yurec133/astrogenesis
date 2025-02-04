@@ -1,115 +1,98 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import React, { useRef, useEffect } from "react";
 
-interface StarConfig {
-  depth: number;
-  xPos: number;
-  yPos: number;
-  alpha: number;
+interface Star {
+  x: number;
+  y: number;
+  z: number;
+  speed: number;
   size: number;
-  blur: number;
-  lifetime: number;
+  alpha: number;
+  isStatic: boolean;
 }
 
 const Stars: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const starsRef = useRef<Star[]>([]);
 
-  const initialStarCount = useMemo(() => {
-    if (typeof window !== "undefined") {
-      const canvasSize = window.innerWidth * window.innerHeight;
-      return Math.round(canvasSize / 1000);
-    }
-    return 100;
-  }, []);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  const random = (min: number, max: number) =>
-    min + Math.random() * (max - min);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-  const createStarConfig = (): StarConfig => ({
-    depth: random(0.5, 2),
-    xPos: random(0, 100),
-    yPos: random(0, 100),
-    alpha: random(0.2, 0.7),
-    size: random(0.5, 2),
-    blur: 0,
-    lifetime: random(6, 15) * 1000,
-  });
-
-  const createStar = () => {
-    if (!containerRef.current) return;
-
-    const { depth, xPos, yPos, alpha, size, lifetime } = createStarConfig();
-
-    const star = document.createElement("div");
-    star.classList.add("star");
-
-    Object.assign(star.style, {
-      position: "fixed",
-      left: `${xPos}%`,
-      top: `${yPos}%`,
-      opacity: `${alpha}`,
-      width: `${size}px`,
-      height: `${size}px`,
-      backgroundColor: "#ffffff",
-      borderRadius: "50%",
-      filter: `blur(${(2 - depth) * 1.5}px)`,
-    });
-
-    containerRef.current.appendChild(star);
-
-    const tl = gsap.timeline();
-
-    tl.from(star, {
-      duration: 1.5 * depth,
-      opacity: 0,
-      y: 5 * depth,
-      scale: 2 - depth,
-      rotate: 180,
-    });
-
-    tl.to(star, {
-      duration: 1.5,
-      opacity: 0,
-      delay: lifetime / 1000,
-      onComplete: () => {
-        star.remove();
-        setTimeout(createStar, random(1000, 3000));
-      },
-    });
-  };
-
-  useGSAP(() => {
-    if (typeof window === "undefined") return;
-
-    for (let i = 0; i < initialStarCount; i++) {
-      setTimeout(createStar, random(0, 4000));
-    }
-
-    const handleResize = () => {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
-        for (let i = 0; i < initialStarCount; i++) {
-          setTimeout(createStar, random(0, 4000));
-        }
-      }
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
 
-    window.addEventListener("resize", handleResize);
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const starCount = Math.round((window.innerWidth * window.innerHeight) / 800); // Більше зірок
+
+    starsRef.current = new Array(starCount).fill(null).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      z: Math.random() * 2 + 0.3,
+      speed: Math.random() * 0.03 + 0.005,
+      size: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.7 + 0.3,
+      isStatic: Math.random() < 0.3,
+    }));
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      starsRef.current.forEach((star) => {
+        if (star.isStatic) {
+          star.alpha += Math.random() * 0.02 - 0.01;
+          if (star.alpha < 0.3) star.alpha = 0.3;
+          if (star.alpha > 0.7) star.alpha = 0.7;
+
+          ctx.globalAlpha = star.alpha;
+          ctx.fillStyle = "#ffffff";
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          const perspective = 100 / star.z;
+          const screenX = canvas.width / 2 + (star.x - canvas.width / 2) * perspective;
+          const screenY = canvas.height / 2 + (star.y - canvas.height / 2) * perspective;
+          const radius = star.size * perspective * 0.03;
+
+          ctx.globalAlpha = star.alpha;
+          ctx.fillStyle = "#ffffff";
+          ctx.shadowBlur = (1.5 - star.z) * 10;
+          ctx.shadowColor = "#ffffff";
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          star.z -= star.speed;
+
+          if (star.z <= 0) {
+            star.x = Math.random() * canvas.width;
+            star.y = Math.random() * canvas.height;
+            star.z = 2;
+            star.alpha = Math.random() * 0.7 + 0.3;
+          }
+        }
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", resizeCanvas);
     };
-  }, [initialStarCount]);
+  }, []);
 
-  return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-[-1]"
-    ></div>
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-[-1] w-full h-full" />;
 };
 
 export default Stars;

@@ -9,11 +9,13 @@ import Menu from "@/components/Menu";
 import Hero from "@/components/Hero";
 import SolarSystemSection from "@/components/SolarSystemSection";
 import Stars from "@/components/Stars";
+import Particles from "@/components/Particles";
 
 export default function Home() {
   return (
     <>
       <Stars />
+      <Particles />
       <Menu />
       <Hero />
       <SolarSystemSection />

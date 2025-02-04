@@ -5,6 +5,16 @@ const Hero = () => {
   return (
     <div className={"h-[100vh] relative container mx-auto"}>
       <Image
+        className={
+          "absolute left-[0] xl:left-[170px] top-[-150px] w-[80vw] md:w-[50vw] xl:w-[27vw] h-auto"
+        }
+        src={"/images/img-nebula-home.webp"}
+        alt={"Nebula"}
+        width={524}
+        height={465}
+        layout="intrinsic"
+      />
+      <Image
         className={"absolute right-0 top-[14%] w-[50vw] xl:w-[28vw] h-auto"}
         src={"/images/img-planet-hero-section.webp"}
         alt={"Planet"}
