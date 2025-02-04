@@ -32,7 +32,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
     <>
       <div
         className={
-          "flex lg:hidden justify-between align-items-center gap-4 px-[18px] sticky top-[20px] z-50"
+          "flex lg:hidden justify-between align-items-center gap-4 px-[18px] fixed w-full top-[20px] z-50"
         }
       >
         <Link href="/" aria-label="Go to homepage" onClick={handleScrollToTop}>

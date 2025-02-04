@@ -26,13 +26,13 @@ body {
     19% 31%,
     100% 24%;
   background-size:
-          35% auto, /* bg-planet-purple.png */
-          auto, /* bg-space-ship.png */
-          auto, /* bg-moon.png */
-          50% auto, /* bg-planet-astro.png */
-          auto, /* bg-planet-about.png */
-          auto, /* bg-spacehip-about-small.png */
-          auto; /* bg-spacehip-about-medium.png */
+    35% auto,
+    /* bg-planet-purple.png */ auto,
+    /* bg-space-ship.png */ auto,
+    /* bg-moon.png */ 50% auto,
+    /* bg-planet-astro.png */ auto,
+    /* bg-planet-about.png */ auto,
+    /* bg-spacehip-about-small.png */ auto; /* bg-spacehip-about-medium.png */
   background-repeat: no-repeat;
   font-size: 18px;
   font-weight: 400;
@@ -116,6 +116,17 @@ body {
         rgba(255, 255, 255, 0.038) 100%
       ),
       linear-gradient(0deg, #eef9ff, #eef9ff);
+  }
+
+  .bg-rose-gradient-hover {
+    @apply transition-all duration-200;
+    color: #fff;
+    background:
+    radial-gradient(68.78% 100% at 43.75% 114.06%, #AD12F5 0%, #FDAC62 80.98%),
+    radial-gradient(59.09% 164.65% at -3.98% 12.5%, #FF33BA 19.65%, rgba(237, 66, 179, 0) 100%),
+    radial-gradient(57.81% 391.02% at 25.57% 34.38%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(0deg, #55128A, #55128A);
+
   }
 }
 
@@ -212,4 +223,33 @@ body {
     rgba(42, 27, 114, 0.95) 0%,
     rgba(81, 39, 129, 0.95) 37.85%
   );
+}
+.btn-green-gradient {
+  background: radial-gradient(
+      35.8% 316.2% at 82.39% 55.47%,
+      #41ff48 0%,
+      #00bcb1 100%
+    ),
+    radial-gradient(
+      92.56% 151.44% at 33.52% -15.63%,
+      #e0e342 0%,
+      rgba(35, 173, 140, 0.58) 85.15%
+    ),
+    radial-gradient(
+      66.76% 121.06% at 22.73% 20.31%,
+      rgba(226, 241, 45, 0.2) 18.63%,
+      rgba(226, 241, 45, 0.186) 100%
+    ),
+    radial-gradient(
+      45.91% 85.94% at 55.4% 14.06%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.032) 100%
+    ),
+    linear-gradient(0deg, #030303, #030303);
+
+  box-shadow:
+    10px 20px 80px 0 #1ee9324d,
+    -20px -20px 50px 0 #0e0e0f80,
+    -10px -20px 50px 0 #faff0033,
+    0 0 10px 0 #ffffff99 inset;
 }
