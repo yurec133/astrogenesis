@@ -1,26 +1,32 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RocketSvg from "@/components/RocketSvg";
 
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 const SolarSystemSection = () => {
-  const plutoRef = useRef<HTMLImageElement>(null);
-  const uranusRef = useRef<HTMLImageElement>(null);
-  const neptuneRef = useRef<HTMLImageElement>(null);
-  const saturnRef = useRef<HTMLImageElement>(null);
-  const jupiterRef = useRef<HTMLImageElement>(null);
-  const marsRef = useRef<HTMLImageElement>(null);
-  const earthRef = useRef<HTMLImageElement>(null);
-  const venusRef = useRef<HTMLImageElement>(null);
-  const mercuryRef = useRef<HTMLImageElement>(null);
+  const plutoRef = useRef<HTMLImageElement | null>(null);
+  const uranusRef = useRef<HTMLImageElement | null>(null);
+  const neptuneRef = useRef<HTMLImageElement | null>(null);
+  const saturnRef = useRef<HTMLImageElement | null>(null);
+  const jupiterRef = useRef<HTMLImageElement | null>(null);
+  const marsRef = useRef<HTMLImageElement | null>(null);
+  const earthRef = useRef<HTMLImageElement | null>(null);
+  const venusRef = useRef<HTMLImageElement | null>(null);
+  const mercuryRef = useRef<HTMLImageElement | null>(null);
   const [scale, setScale] = useState(1);
+  const scrollToProgress = (progress: number) => {
+    gsap.globalTimeline.progress(progress);
+  };
 
   useEffect(() => {
     const updateScale = () => {
-      setScale(window.innerWidth / 1920); // Масштабування відносно макета 1920px
+      setScale(window.innerWidth / 1920);
     };
 
     updateScale();
@@ -29,7 +35,7 @@ const SolarSystemSection = () => {
   }, []);
 
   const animatePlanet = (
-    planetRef: React.RefObject<HTMLImageElement>,
+    planetRef: React.RefObject<HTMLImageElement | null>,
     a: number,
     b: number,
     offsetX: number,
@@ -82,10 +88,45 @@ const SolarSystemSection = () => {
         autoRotate: true,
       },
       ease: "linear",
+      paused: true,
+      scrollTrigger: {
+        trigger: planetRef.current,
+        start: "top 125%",
+        end: "bottom",
+        toggleActions: "play pause play pause",
+        markers: false,
+        onEnter: () => {
+          scrollToProgress(0.3);
+        },
+      },
     });
+
+    gsap.fromTo(
+      "#fire1",
+      { opacity: 0.5, scaleY: 0.8 },
+      {
+        opacity: 1,
+        scaleY: 1.2,
+        repeat: -1,
+        yoyo: true,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
+    gsap.fromTo(
+      "#fire-group, #fire-group2",
+      { scaleY: 0.8 },
+      {
+        scaleY: 1.2,
+        repeat: -1,
+        yoyo: true,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
   };
 
-  useEffect(() => {
+  useGSAP(() => {
     animatePlanet(
       plutoRef,
       (1631 / 2) * scale,
@@ -96,72 +137,72 @@ const SolarSystemSection = () => {
     );
     animatePlanet(
       uranusRef,
-      (1270 / 2) * scale, // Зменшена велика піввісь
-      (525 / 2) * scale, // Зменшена мала піввісь
-      780 * scale, // Можна також трохи змістити центр
+      (1270 / 2) * scale,
+      (525 / 2) * scale,
+      780 * scale,
       -525 * scale,
       150,
     );
     animatePlanet(
       neptuneRef,
-      (1270 / 2) * scale, // Зменшена велика піввісь
-      (520 / 2) * scale, // Зменшена мала піввісь
-      780 * scale, // Можна також трохи змістити центр
+      (1270 / 2) * scale,
+      (520 / 2) * scale,
+      780 * scale,
       -525 * scale,
       130,
     );
     animatePlanet(
       saturnRef,
-      (720 / 2) * scale, // Велика піввісь
-      (380 / 2) * scale, // Мала піввісь
-      650 * scale, // Центр ближче до центру системи
-      -580 * scale, // Коригуємо зміщення по Y
-      80, // Початковий кут
+      (720 / 2) * scale,
+      (380 / 2) * scale,
+      650 * scale,
+      -580 * scale,
+      80,
     );
     animatePlanet(
       jupiterRef,
-      (540 / 2) * scale, // Велика піввісь
-      (290 / 2) * scale, // Мала піввісь
-      770 * scale, // Центр ближче до центру системи
-      -530 * scale, // Коригуємо зміщення по Y
-      60, // Початковий кут
+      (540 / 2) * scale,
+      (290 / 2) * scale,
+      770 * scale,
+      -530 * scale,
+      60,
     );
     animatePlanet(
       marsRef,
-      (380 / 2) * scale, // Велика піввісь
-      (200 / 2) * scale, // Мала піввісь
-      775 * scale, // Центр ближче до центру системи
-      -514 * scale, // Коригуємо зміщення по Y
-      50, // Початковий кут
+      (380 / 2) * scale,
+      (200 / 2) * scale,
+      775 * scale,
+      -514 * scale,
+      50,
     );
     animatePlanet(
       earthRef,
-      (227 / 2) * scale, // Велика піввісь
-      (115 / 2) * scale, // Мала піввісь
-      790 * scale, // Центр ближче до центру системи
-      -501 * scale, // Коригуємо зміщення по Y
-      40, // Початковий кут
+      (227 / 2) * scale,
+      (115 / 2) * scale,
+      790 * scale,
+      -501 * scale,
+      40,
     );
     animatePlanet(
       venusRef,
-      (227 / 2) * scale, // Велика піввісь
-      (105 / 2) * scale, // Мала піввісь
-      790 * scale, // Центр ближче до центру системи
-      -495 * scale, // Коригуємо зміщення по Y
-      30, // Початковий кут
+      (227 / 2) * scale,
+      (105 / 2) * scale,
+      790 * scale,
+      -495 * scale,
+      30,
     );
     animatePlanet(
-        mercuryRef,
-        (97 / 2) * scale, // Велика піввісь
-        (60 / 2) * scale, // Мала піввісь
-        800 * scale, // Центр ближче до центру системи
-        -490 * scale, // Коригуємо зміщення по Y
-        10, // Початковий кут
+      mercuryRef,
+      (97 / 2) * scale,
+      (60 / 2) * scale,
+      800 * scale,
+      -490 * scale,
+      10,
     );
   }, [scale]);
 
   return (
-    <div className="h-[100vh] relative z-10">
+    <div className="h-[30vh] md:h-[50vh] xl:h-[100vh] relative z-10">
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{ width: `${1629 * scale}px`, height: `${874 * scale}px` }}
@@ -171,9 +212,8 @@ const SolarSystemSection = () => {
           alt="Solar System"
           width={1629}
           height={874}
-          layout="intrinsic"
         />
-        {/* Pluto */}
+        {/* Planets */}
         <Image
           ref={plutoRef}
           className="absolute"
@@ -181,9 +221,7 @@ const SolarSystemSection = () => {
           alt="Pluto"
           width={62 * scale}
           height={62 * scale}
-          layout="intrinsic"
         />
-        {/* Uranus */}
         <Image
           ref={uranusRef}
           className="absolute"
@@ -191,9 +229,7 @@ const SolarSystemSection = () => {
           alt="Uranus"
           width={82 * scale}
           height={82 * scale}
-          layout="intrinsic"
         />
-        {/*Neptune*/}
         <Image
           ref={neptuneRef}
           className="absolute"
@@ -201,20 +237,15 @@ const SolarSystemSection = () => {
           alt="Neptune"
           width={73 * scale}
           height={73 * scale}
-          layout="intrinsic"
         />
-        {/* Saturn */}
         <Image
           ref={saturnRef}
           className="absolute"
-          src="/images/img-satrun-large.webp"
+          src="/images/img-saturn.webp"
           alt="Saturn"
           width={328 * scale}
           height={187 * scale}
-          layout="intrinsic"
         />
-
-        {/* Jupiter */}
         <Image
           ref={jupiterRef}
           className="absolute"
@@ -222,9 +253,7 @@ const SolarSystemSection = () => {
           alt="Jupiter"
           width={115 * scale}
           height={115 * scale}
-          layout="intrinsic"
         />
-        {/* Mars */}
         <Image
           ref={marsRef}
           className="absolute"
@@ -232,9 +261,7 @@ const SolarSystemSection = () => {
           alt="Mars"
           width={76 * scale}
           height={76 * scale}
-          layout="intrinsic"
         />
-        {/* Earth */}
         <Image
           ref={earthRef}
           className="absolute"
@@ -242,9 +269,7 @@ const SolarSystemSection = () => {
           alt="Earth"
           width={58 * scale}
           height={58 * scale}
-          layout="intrinsic"
         />
-        {/* Venus */}
         <Image
           ref={venusRef}
           className="absolute"
@@ -252,9 +277,7 @@ const SolarSystemSection = () => {
           alt="Venus"
           width={43 * scale}
           height={43 * scale}
-          layout="intrinsic"
         />
-        {/* Mercury */}
         <Image
           ref={mercuryRef}
           className="absolute"
@@ -262,16 +285,13 @@ const SolarSystemSection = () => {
           alt="Mercury"
           width={32 * scale}
           height={32 * scale}
-          layout="intrinsic"
         />
       </div>
-      <Image
-        className="absolute left-1/2 -translate-x-1/2 bottom-[25%] md:bottom-[1%] z-[1] ml-[-5%] w-[35vw] xl:w-[18vw] h-auto"
-        src="/images/img-rocket-universe.svg"
-        alt="Rocket"
-        width={353}
-        height={420}
-        layout="intrinsic"
+
+      <RocketSvg
+        className={
+          "absolute left-1/2 -translate-x-1/2 bottom-[-25%] md:bottom-[-7%] z-[10] ml-[-5%] w-[25vw] xl:w-[18vw] h-auto"
+        }
       />
     </div>
   );

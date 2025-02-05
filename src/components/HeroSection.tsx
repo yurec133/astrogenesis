@@ -16,7 +16,7 @@ const HeroSection = () => {
   useGSAP(() => {
     if (!astronautRef.current || !planetRef.current || !ufoRef.current) return;
 
-    const ufoAnimation = gsap.to(ufoRef.current, {
+    gsap.to(ufoRef.current, {
       y: "+=20",
       repeat: -1,
       yoyo: true,
@@ -24,7 +24,7 @@ const HeroSection = () => {
       duration: 3,
     });
 
-    const astronautAnimation = gsap.to(astronautRef.current, {
+    gsap.to(astronautRef.current, {
       y: "+=30",
       repeat: -1,
       yoyo: true,
@@ -32,7 +32,7 @@ const HeroSection = () => {
       duration: 2,
     });
 
-    const rocketAnimation = gsap.fromTo(
+    gsap.fromTo(
       rocketRef.current,
       { x: "-100px", opacity: 0 },
       { x: "+=140", opacity: 1, ease: "circ.out", duration: 3 },
@@ -44,29 +44,9 @@ const HeroSection = () => {
       ease: "none",
       scrollTrigger: {
         trigger: planetRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
+        start: "top top",
+        end: "+=100%",
         scrub: 1,
-        onEnter: () => {
-          ufoAnimation.play();
-          astronautAnimation.play();
-          rocketAnimation.play();
-        },
-        onLeave: () => {
-          ufoAnimation.pause();
-          astronautAnimation.pause();
-          rocketAnimation.pause();
-        },
-        onEnterBack: () => {
-          ufoAnimation.play();
-          astronautAnimation.play();
-          rocketAnimation.play();
-        },
-        onLeaveBack: () => {
-          ufoAnimation.pause();
-          astronautAnimation.pause();
-          rocketAnimation.pause();
-        },
       },
     });
   }, []);
@@ -81,7 +61,6 @@ const HeroSection = () => {
         alt={"Nebula"}
         width={524}
         height={465}
-        layout="intrinsic"
       />
       <Image
         ref={planetRef}
@@ -90,7 +69,6 @@ const HeroSection = () => {
         alt={"Planet"}
         width={507}
         height={604}
-        layout="intrinsic"
       />
       <Image
         className={"absolute left-[4%] top-[10%] lg:top-[30%]"}
@@ -121,11 +99,10 @@ const HeroSection = () => {
         alt={"Astronaut"}
         width={360}
         height={360}
-        layout="intrinsic"
       />
       <div
         className={
-          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 max-w-full w-[802px] px-[30px] xl:px-0"
         }
       >
         <Image
@@ -135,7 +112,6 @@ const HeroSection = () => {
           width={802}
           height={77}
           priority
-          layout="intrinsic"
         />
         <Image
           ref={rocketRef}
@@ -145,7 +121,6 @@ const HeroSection = () => {
           width={237}
           height={42}
           priority
-          layout="intrinsic"
         />
       </div>
 
