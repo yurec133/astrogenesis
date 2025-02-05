@@ -14,6 +14,30 @@ pnpm dev
 bun dev
 ```
 
+## Static Site Generation (SSG)
+
+If you need to generate a static site (SSG), run the following commands:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+
+After the build process completes, you can start the production server with:
+
+npm run start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
