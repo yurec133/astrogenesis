@@ -35,7 +35,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           "flex lg:hidden justify-between align-items-center gap-4 px-[18px] fixed w-full top-[20px] z-50"
         }
       >
-        <Link href="/" aria-label="Go to homepage" onClick={handleScrollToTop}>
+        <Link href="/public" aria-label="Go to homepage" onClick={handleScrollToTop}>
           <Image
             src="/images/logo.svg"
             alt="Astro Genesis Logo"

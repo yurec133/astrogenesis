@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-import MobileNav from "@/components/MobileNav";
+import MobileNav from "@/components/nav/MobileNav";
 
 const menuItems: { name: string; href: string }[] = [
   { name: "ABOUT", href: "#about" },
@@ -94,7 +94,7 @@ const Menu = () => {
         >
           <div className="absolute left-[50px] top-1/2 -translate-y-1/2 transition-all duration-300">
             <Link
-              href="/"
+              href="/public"
               aria-label="Go to homepage"
               onClick={handleScrollToTop}
             >

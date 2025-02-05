@@ -5,11 +5,11 @@ import RoadmapSection from "@/components/roadmap";
 import SubscribeSection from "@/components/SubscribeSection";
 import Footer from "@/components/Footer";
 import AboutSection from "@/components/AboutSection";
-import Menu from "@/components/Menu";
 import HeroSection from "@/components/HeroSection";
 import SolarSystemSection from "@/components/SolarSystemSection";
 import Stars from "@/components/Stars";
 import Particles from "@/components/Particles";
+import Menu from "@/components/nav";
 
 export default function Home() {
   return (
