@@ -22,8 +22,6 @@ const SubscribeForm = () => {
 
     setError(null);
 
-    console.log("Form data: ", email);
-
     setEmail("");
   };
 
