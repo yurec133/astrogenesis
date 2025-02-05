@@ -26,9 +26,10 @@ yarn build
 pnpm build
 # or
 bun build
-
+```
 After the build process completes, you can start the production server with:
 
+```bash
 npm run start
 # or
 yarn start
@@ -36,7 +37,7 @@ yarn start
 pnpm start
 # or
 bun start
-
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
