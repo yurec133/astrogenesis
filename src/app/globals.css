@@ -8,6 +8,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   color: var(--foreground);
@@ -16,15 +17,17 @@ body {
     url("/images/bg-space-ship.png"), url("/images/bg-moon.png"),
     url("/images/bg-planet-astro.webp"), url("/images/bg-planet-about.webp"),
     url("/images/bg-spacehip-about-small.png"),
-    url("/images/bg-spacehip-about-medium.png");
+    url("/images/bg-spacehip-about-medium.png"),
+  url("/images/img-planet-hero-section.webp");
   background-position:
-    0 97%,
-    78% 87%,
-    88% 86%,
-    100% 50%,
-    0 31%,
+    -100% 97%,
+    -78% 87%,
+    130% 86%,
+    200% 50%,
+    -30% 31%,
     19% 31%,
-    100% 24%;
+    100% 24%,
+    130% 3%;
   background-size:
     35% auto,
     /* bg-planet-purple.png */ auto,

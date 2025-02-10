@@ -9,12 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const astronautRef = React.useRef<HTMLImageElement>(null);
-  const planetRef = React.useRef<HTMLImageElement>(null);
   const rocketRef = React.useRef<HTMLImageElement>(null);
   const ufoRef = React.useRef<HTMLImageElement>(null);
 
   useGSAP(() => {
-    if (!astronautRef.current || !planetRef.current || !ufoRef.current) return;
+    if (!astronautRef.current || !ufoRef.current) return;
 
     gsap.to(ufoRef.current, {
       y: "+=20",
@@ -37,18 +36,6 @@ const HeroSection = () => {
       { x: "-100px", opacity: 0 },
       { x: "+=140", opacity: 1, ease: "circ.out", duration: 3 },
     );
-
-    gsap.to(planetRef.current, {
-      y: "+=200",
-      x: "+=700",
-      ease: "none",
-      scrollTrigger: {
-        trigger: planetRef.current,
-        start: "top top",
-        end: "+=100%",
-        scrub: 1,
-      },
-    });
   }, []);
 
   return (
@@ -61,14 +48,6 @@ const HeroSection = () => {
         alt={"Nebula"}
         width={524}
         height={465}
-      />
-      <Image
-        ref={planetRef}
-        className={"absolute right-0 top-[14%] w-[50vw] xl:w-[28vw] h-auto"}
-        src={"/images/img-planet-hero-section.webp"}
-        alt={"Planet"}
-        width={507}
-        height={604}
       />
       <Image
         className={"absolute left-[4%] top-[10%] lg:top-[30%]"}

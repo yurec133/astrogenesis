@@ -10,10 +10,12 @@ import SolarSystemSection from "@/components/SolarSystemSection";
 import Stars from "@/components/Stars";
 import Particles from "@/components/Particles";
 import Menu from "@/components/nav";
+import BackgroundScroll from "@/components/BackgroundScroll";
 
 export default function Home() {
   return (
-    <div className={"overflow-x-hidden"}>
+    <div className={'overflow-x-hidden'}>
+      <BackgroundScroll />
       <Stars />
       <Particles />
       <Menu />
