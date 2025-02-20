@@ -11,6 +11,7 @@ const HeroSection = () => {
   const astronautRef = React.useRef<HTMLImageElement>(null);
   const rocketRef = React.useRef<HTMLImageElement>(null);
   const ufoRef = React.useRef<HTMLImageElement>(null);
+
   useGSAP(() => {
     if (!astronautRef.current || !ufoRef.current) return;
 
@@ -43,21 +44,21 @@ const HeroSection = () => {
         className={
           "absolute left-[0] xl:left-[170px] top-[-150px] w-[80vw] md:w-[50vw] xl:w-[27vw] h-auto"
         }
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img-nebula-home.webp`}
+        src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-nebula-home.webp"}
         alt={"Nebula"}
         width={524}
         height={465}
       />
       <Image
         className={"absolute left-[4%] top-[10%] lg:top-[30%]"}
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img-galaxy-blue.png`}
+        src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-galaxy-blue.png"}
         alt={"Galaxy"}
         width={59}
         height={59}
       />
       <Image
         className={"absolute left-[15%] xl:left-[26%] top-[30%]"}
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img-planet-home-small.png`}
+        src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-planet-home-small.png"}
         alt={"Planet Home"}
         width={59}
         height={70}
@@ -65,7 +66,7 @@ const HeroSection = () => {
       <Image
         ref={ufoRef}
         className={"absolute left-[30px] bottom-[22%]"}
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img-space-ship-home.png`}
+        src={"/images/img-space-ship-home.png"}
         alt={"Planet"}
         width={152}
         height={107}
@@ -73,7 +74,7 @@ const HeroSection = () => {
       <Image
         ref={astronautRef}
         className={"absolute right-[18%] top-[19%] w-[50vw] xl:w-[18vw] h-auto"}
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/img-astronaut.svg`}
+        src={"/images/img-astronaut.svg"}
         alt={"Astronaut"}
         width={360}
         height={360}
@@ -85,7 +86,7 @@ const HeroSection = () => {
       >
         <Image
           className={"block"}
-          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-astro-genesis-text.svg"}
+          src={"/images/img-astro-genesis-text.svg"}
           alt={"Astrogenesis"}
           width={802}
           height={77}
@@ -94,7 +95,7 @@ const HeroSection = () => {
         <Image
           ref={rocketRef}
           className={"block"}
-          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-rocket-to-astogenesis.svg"}
+          src={"/images/img-rocket-to-astogenesis.svg"}
           alt={"Rocket"}
           width={237}
           height={42}
@@ -105,7 +106,7 @@ const HeroSection = () => {
       <div className="absolute bottom-[0] left-1/2 -translate-x-1/2 z-[1] pb-[145px] md:pb-[75px]">
         <Image
           className={"m-auto mb-[-30px]"}
-          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-arrow-pointing.svg"}
+          src={"/images/img-arrow-pointing.svg"}
           alt={"Arrow Pointing"}
           width={230}
           height={217}
