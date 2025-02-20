@@ -13,12 +13,12 @@ html {
 body {
   color: var(--foreground);
   background-color: var(--background);
-  background-image: url("/images/bg-planet-purple.webp"),
-    url("/images/bg-space-ship.png"), url("/images/bg-moon.png"),
-    url("/images/bg-planet-astro.webp"), url("/images/bg-planet-about.webp"),
-    url("/images/bg-spacehip-about-small.png"),
-    url("/images/bg-spacehip-about-medium.png"),
-  url("/images/img-planet-hero-section.webp");
+  background-image: url("astrogenesis/images/bg-planet-purple.webp"),
+    url("astrogenesis/images/bg-space-ship.png"), url("astrogenesis/images/bg-moon.png"),
+    url("astrogenesis/images/bg-planet-astro.webp"), url("astrogenesis/images/bg-planet-about.webp"),
+    url("astrogenesis/images/bg-spacehip-about-small.png"),
+    url("astrogenesis/images/bg-spacehip-about-medium.png"),
+  url("astrogenesis/images/img-planet-hero-section.webp");
   background-position:
     -100% 97%,
     -78% 87%,
