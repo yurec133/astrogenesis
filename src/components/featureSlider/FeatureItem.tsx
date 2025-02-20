@@ -12,7 +12,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, title, desc }) => {
     <div className="bg-card-soft-purple-gradient-item text-center h-full rounded-2xl">
       <Image
         className="m-auto mb-5"
-        src={imgSrc}
+        src={process.env.NEXT_PUBLIC_BASE_PATH + imgSrc}
         width={0}
         height={101}
         alt={title}
