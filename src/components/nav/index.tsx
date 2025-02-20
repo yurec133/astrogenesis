@@ -99,7 +99,7 @@ const Menu = () => {
               onClick={handleScrollToTop}
             >
               <Image
-                src="/images/logo.svg"
+                src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/logo.svg"}
                 alt="Astro Genesis Logo"
                 width={isSticky ? 47 : 80}
                 height={isSticky ? 56 : 97}

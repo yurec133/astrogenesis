@@ -60,7 +60,7 @@ const SubscribeForm = () => {
             <span className={"hidden md:block"}>Subscribe</span>
             <Image
               className={"inline-block md:hidden"}
-              src="/images/icon-arrow-right.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-arrow-right.svg"}
               alt="Subscribe"
               width={23}
               height={24}

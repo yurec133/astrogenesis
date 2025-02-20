@@ -7,7 +7,7 @@ const SubscribeSection = () => {
     <section id={'airdrop'} className={"mb-16 lg:mb-36 xl:mx-[40px] text-center"}>
       <Image
         className={"inline-block mb-4 lg:mb-7"}
-        src="/images/img-astr-on-ship.svg"
+        src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-astr-on-ship.svg"}
         alt="Rocket"
         width={184}
         height={101}

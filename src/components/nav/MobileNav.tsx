@@ -37,7 +37,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
       >
         <Link href="/public" aria-label="Go to homepage" onClick={handleScrollToTop}>
           <Image
-            src="/images/logo.svg"
+            src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/logo.svg"}
             alt="Astro Genesis Logo"
             width={54}
             height={66}
@@ -47,7 +47,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
         <Image
           onClick={toggleNav}
           className={"cursor-pointer btn-nav"}
-          src="/images/icon-nav.svg"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-nav.svg"}
           alt="nav"
           width={50}
           height={50}
@@ -66,7 +66,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           className={
             "cursor-pointer absolute right-[30px] top-[20px] btn-close"
           }
-          src="/images/icon-close.svg"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-close.svg"}
           alt="close"
           width={38}
           height={38}
@@ -92,14 +92,14 @@ const MobileNav: React.FC<MobileNavProps> = ({
           <div>
             <Image
               className={"m-auto mb-3"}
-              src="/images/img-astrogenesis-flame.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-astrogenesis-flame.svg"}
               alt="Astrogenesis"
               width={82}
               height={173}
             />
             <Image
               className={"m-auto"}
-              src="/images/img-astro-genesis-typo.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-astro-genesis-typo.svg"}
               alt="Astrogenesis"
               width={392}
               height={56}

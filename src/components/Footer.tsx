@@ -45,17 +45,17 @@ const Footer = () => {
           <div className="flex gap-4">
             <SocialIcon
               href="https://discord.com"
-              src="/images/icon-discord-social.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-discord-social.svg"}
               alt="Discord"
             />
             <SocialIcon
               href="https://twitter.com"
-              src="/images/icon-x-social.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-x-social.svg"}
               alt="X social"
             />
             <SocialIcon
               href="https://t.me"
-              src="/images/icon-telegram-social.svg"
+              src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/icon-telegram-social.svg"}
               alt="Telegram"
             />
           </div>

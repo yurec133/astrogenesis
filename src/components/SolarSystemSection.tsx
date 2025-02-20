@@ -208,7 +208,7 @@ const SolarSystemSection = () => {
         style={{ width: `${1629 * scale}px`, height: `${874 * scale}px` }}
       >
         <Image
-          src="/images/bg-solar-system.svg"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/bg-solar-system.svg"}
           alt="Solar System"
           width={1629}
           height={874}
@@ -217,7 +217,7 @@ const SolarSystemSection = () => {
         <Image
           ref={plutoRef}
           className="absolute"
-          src="/images/img-pluto.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-pluto.webp"}
           alt="Pluto"
           width={62 * scale}
           height={62 * scale}
@@ -225,7 +225,7 @@ const SolarSystemSection = () => {
         <Image
           ref={uranusRef}
           className="absolute"
-          src="/images/img-uranus.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-uranus.webp"}
           alt="Uranus"
           width={82 * scale}
           height={82 * scale}
@@ -233,7 +233,7 @@ const SolarSystemSection = () => {
         <Image
           ref={neptuneRef}
           className="absolute"
-          src="/images/img-neptune.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-neptune.webp"}
           alt="Neptune"
           width={73 * scale}
           height={73 * scale}
@@ -241,7 +241,7 @@ const SolarSystemSection = () => {
         <Image
           ref={saturnRef}
           className="absolute"
-          src="/images/img-saturn.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-saturn.webp"}
           alt="Saturn"
           width={328 * scale}
           height={187 * scale}
@@ -249,7 +249,7 @@ const SolarSystemSection = () => {
         <Image
           ref={jupiterRef}
           className="absolute"
-          src="/images/img-jupiter.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-jupiter.webp"}
           alt="Jupiter"
           width={115 * scale}
           height={115 * scale}
@@ -257,7 +257,7 @@ const SolarSystemSection = () => {
         <Image
           ref={marsRef}
           className="absolute"
-          src="/images/img-mars.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-mars.webp"}
           alt="Mars"
           width={76 * scale}
           height={76 * scale}
@@ -265,7 +265,7 @@ const SolarSystemSection = () => {
         <Image
           ref={earthRef}
           className="absolute"
-          src="/images/img-earth.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-earth.webp"}
           alt="Earth"
           width={58 * scale}
           height={58 * scale}
@@ -273,7 +273,7 @@ const SolarSystemSection = () => {
         <Image
           ref={venusRef}
           className="absolute"
-          src="/images/img-venus.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-venus.webp"}
           alt="Venus"
           width={43 * scale}
           height={43 * scale}
@@ -281,7 +281,7 @@ const SolarSystemSection = () => {
         <Image
           ref={mercuryRef}
           className="absolute"
-          src="/images/img-mercury.webp"
+          src={process.env.NEXT_PUBLIC_BASE_PATH + "/images/img-mercury.webp"}
           alt="Mercury"
           width={32 * scale}
           height={32 * scale}
